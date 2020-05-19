@@ -1,0 +1,28 @@
+-
+  name: settingup apache
+  hosts: all
+  remote_user: rahul
+  become: true
+  tasks:
+    - name: install httpd
+      yum: 
+        name: httpd
+        state: latest
+    - name: restarting httpd
+      service: 
+        name: httpd
+        state: started
+    - name: copy index file 
+      copy: 
+        src: index.html
+        dest: /var/www/html/index.html
+    - name: enable httpd
+      service: 
+        name: httpd
+        enabled: yes
+    - name: Open Port 80
+      command: firewall-cmd --permanent --add-service=http
+    - name: reboot the machine with all defaults
+      reboot:
+
+          
