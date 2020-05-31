@@ -3,7 +3,19 @@
 
 <body>
 
-    <h1>successful</h1>
+    <p>Click the button to display the hostname of the current URL.</p>
+    <h2> Apache installed on host,
+    <button onclick="myFunction()"> hostname</button>
+    </h2>
+    <p id="ip"></p>
+
+    <script>
+        function myFunction() {
+            var x = location.hostname;
+            document.getElementById("ip").innerHTML = x;
+        }
+    </script>
+
 </body>
 
 </html>
